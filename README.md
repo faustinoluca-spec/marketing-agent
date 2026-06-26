@@ -1,37 +1,57 @@
-# 🎯 Marketing Agent
+# APEX Marketing Intelligence
 
-Agente de IA que gera campanhas de marketing completas em segundos.
+AI-powered marketing campaigns that top agencies charge $50,000+ for. Generated in minutes.
 
-## Demo
-🔗 [Acesse o app ao vivo](https://marketing-agent-foqkvcvkhtw7fcpbtclsry.streamlit.app)
+Live Demo: https://marketing-agent-foqkvcvkhtw7fcpbtclsry.streamlit.app
 
-## O que faz
-- Pesquisa tendências de mercado em tempo real
-- Gera slogan, conceito e estratégia da campanha
-- Cria posts prontos para Instagram, LinkedIn e Twitter/X
-- Escreve email marketing completo
-- Sugere briefing para anúncios pagos (Google/Meta Ads)
-- Exporta a campanha em arquivo markdown
+---
 
-## Stack
-- Python
-- Streamlit (interface web)
-- LangChain + Groq (LLM)
-- Serper API (busca web em tempo real)
+## What it does
 
-## Como rodar localmente
+APEX generates a complete 10-phase marketing strategy plus full content package for any product or company in under 3 minutes.
 
-1. Clone o repositório
-2. Instale as dependências: pip install -r requirements.txt
-3. Crie um arquivo .env com suas chaves:
-   GROQ_KEY=sua_chave
-   SERPER_KEY=sua_chave
-4. Rode: streamlit run app.py
+What you get:
+- 10-phase strategy from Business Intelligence to MarTech Stack
+- Real-time market research via Google Search API
+- Competitor analysis and audience profiling
+- 5 Instagram posts with full captions and hashtags
+- 3 TikTok video scripts with hooks
+- 3 LinkedIn posts
+- 7 Tweets
+- 2 complete email sequences
+- 5 Google Ads with headlines and descriptions
+- 5 Meta Ads concepts with targeting
+- 4-week editorial calendar day by day
+- PDF and Markdown export
 
-## Arquitetura
-O agente segue um pipeline de 2 etapas:
-1. Pesquisa - busca tendências de mercado em tempo real via Serper
-2. Geração - envia os dados para o LLM que cria a campanha estruturada
+---
 
-## Autor
-Luca Faustino - GitHub: https://github.com/faustinoluca-spec
+## Tech Stack
+
+- Frontend: Streamlit
+- LLM: Groq llama-3.3-70b-versatile
+- Orchestration: LangChain
+- Market Research: Serper API
+- Hosting: Streamlit Cloud
+
+---
+
+## How to run locally
+
+git clone https://github.com/faustinoluca-spec/marketing-agent
+cd marketing-agent
+pip install -r requirements.txt
+
+Create a .env file with:
+GROQ_KEY=your_key
+SERPER_KEY=your_key
+
+Then run:
+streamlit run app.py
+
+---
+
+## Author
+
+Luca Faustino - AI Engineer
+GitHub: https://github.com/faustinoluca-spec
