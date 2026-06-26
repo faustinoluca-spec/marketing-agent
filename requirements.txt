@@ -3,3 +3,4 @@ langchain-groq
 langchain-core
 requests
 python-dotenv
+reportlab
