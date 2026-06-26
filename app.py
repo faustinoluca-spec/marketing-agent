@@ -7,8 +7,13 @@ load_dotenv()
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 
-GROQ_KEY = os.environ.get("GROQ_KEY")
-SERPER_KEY = os.environ.get("SERPER_KEY")
+try:
+    import streamlit as st
+    GROQ_KEY = st.secrets["GROQ_KEY"]
+    SERPER_KEY = st.secrets["SERPER_KEY"]
+except:
+    GROQ_KEY = os.environ.get("GROQ_KEY")
+    SERPER_KEY = os.environ.get("SERPER_KEY")
 
 llm = ChatGroq(model="llama-3.3-70b-versatile", api_key=GROQ_KEY)
 
