@@ -54,9 +54,7 @@ with col2:
         if not produto:
             st.warning("Digite o nome do produto!")
         else:
-            st.write("Iniciando geração da campanha...")
-st.write(f"GROQ_KEY carregada: {bool(GROQ_KEY)}")
-st.write(f"SERPER_KEY carregada: {bool(SERPER_KEY)}")
+            st.write("Iniciando geracao da campanha...")
             with st.spinner("Pesquisando o mercado..."):
                 pesquisa = buscar_web(f"{produto} marketing trends 2026 Brazil")
             with st.spinner("Criando sua campanha..."):
