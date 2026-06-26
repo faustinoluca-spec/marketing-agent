@@ -1,14 +1,13 @@
 import streamlit as st
-from dotenv import load_dotenv
 import os
 import requests
+from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 
 try:
-    import streamlit as st
     GROQ_KEY = st.secrets["GROQ_KEY"]
     SERPER_KEY = st.secrets["SERPER_KEY"]
 except:
@@ -37,7 +36,6 @@ def chamar_ia(sistema, conteudo):
     chain = prompt | llm
     return chain.invoke({}).content
 
-# Interface
 st.set_page_config(page_title="Marketing Agent", page_icon="🎯", layout="wide")
 st.title("🎯 Marketing Agent")
 st.subheader("Gere campanhas completas com IA em segundos")
@@ -52,14 +50,19 @@ with col1:
     gerar = st.button("Gerar campanha", type="primary", use_container_width=True)
 
 with col2:
-    if gerar and produto:
-        with st.spinner("Pesquisando o mercado..."):
-            pesquisa = buscar_web(f"{produto} marketing trends 2026 Brazil")
-
-        with st.spinner("Criando sua campanha..."):
-            campanha = chamar_ia(
-                f"Voce e um especialista em marketing digital com 20 anos de experiencia. Tom da campanha: {tom}.",
-                f"""Com base na pesquisa de mercado abaixo, crie uma campanha completa para {produto} direcionada para {publico}.
+    if gerar:
+        if not produto:
+            st.warning("Digite o nome do produto!")
+        else:
+            st.write("Iniciando geração da campanha...")
+st.write(f"GROQ_KEY carregada: {bool(GROQ_KEY)}")
+st.write(f"SERPER_KEY carregada: {bool(SERPER_KEY)}")
+            with st.spinner("Pesquisando o mercado..."):
+                pesquisa = buscar_web(f"{produto} marketing trends 2026 Brazil")
+            with st.spinner("Criando sua campanha..."):
+                campanha = chamar_ia(
+                    f"Voce e um especialista em marketing digital com 20 anos de experiencia. Tom da campanha: {tom}.",
+                    f"""Com base na pesquisa de mercado abaixo, crie uma campanha completa para {produto} direcionada para {publico}.
 
 Pesquisa de mercado:
 {pesquisa}
@@ -86,17 +89,13 @@ Crie exatamente nessa estrutura:
 
 ## Sugestao de anuncio pago
 [descricao do anuncio para Google/Meta Ads]"""
+                )
+            st.markdown(campanha)
+            st.download_button(
+                label="Baixar campanha",
+                data=campanha,
+                file_name=f"campanha_{produto.replace(' ', '_')}.md",
+                mime="text/markdown"
             )
-
-        st.markdown(campanha)
-
-        st.download_button(
-            label="Baixar campanha",
-            data=campanha,
-            file_name=f"campanha_{produto.replace(' ', '_')}.md",
-            mime="text/markdown"
-        )
-    elif gerar and not produto:
-        st.warning("Digite o nome do produto!")
     else:
         st.info("Preencha os campos e clique em Gerar campanha!")
