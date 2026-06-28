@@ -1,20 +1,29 @@
-# APEX Marketing Intelligence
+# APEX Marketing Intelligence 🚀
 
-AI-powered marketing campaigns that top agencies charge $50,000+ for. Generated in minutes.
+AI agent that generates complete marketing campaigns in under 3 minutes — the kind top agencies charge $50,000+ for.
 
-Live Demo: https://marketing-agent-foqkvcvkhtw7fcpbtclsry.streamlit.app
+## Live Demo
 
----
+[apex-marketing.streamlit.app](https://marketing-agent-foqkvcvkhtw7fcpbtclsry.streamlit.app)
 
 ## What it does
 
-APEX generates a complete 10-phase marketing strategy plus full content package for any product or company in under 3 minutes.
+Input a product or company. The agent researches the market in real time and generates a full 10-phase strategy plus complete content package:
 
-What you get:
-- 10-phase strategy from Business Intelligence to MarTech Stack
-- Real-time market research via Google Search API
-- Competitor analysis and audience profiling
-- 5 Instagram posts with full captions and hashtags
+**Strategy**
+- Business Intelligence & market sizing
+- Competitor analysis
+- Audience profiling & segmentation
+- Positioning and messaging
+- Channel strategy
+- Content pillars
+- Paid media plan
+- Influencer strategy
+- KPIs & measurement framework
+- MarTech stack recommendations
+
+**Content Package**
+- 5 Instagram posts with captions and hashtags
 - 3 TikTok video scripts with hooks
 - 3 LinkedIn posts
 - 7 Tweets
@@ -22,36 +31,36 @@ What you get:
 - 5 Google Ads with headlines and descriptions
 - 5 Meta Ads concepts with targeting
 - 4-week editorial calendar day by day
-- PDF and Markdown export
 
----
+Export as PDF or Markdown.
 
 ## Tech Stack
 
-- Frontend: Streamlit
-- LLM: Groq llama-3.3-70b-versatile
-- Orchestration: LangChain
-- Market Research: Serper API
-- Hosting: Streamlit Cloud
+- **LLM:** Groq (llama-3.3-70b-versatile)
+- **Orchestration:** LangChain
+- **Market Research:** Serper API (real-time Google Search)
+- **Frontend:** Streamlit
+- **Hosting:** Streamlit Cloud
 
----
+## Run locally
 
-## How to run locally
-
+```bash
 git clone https://github.com/faustinoluca-spec/marketing-agent
 cd marketing-agent
 pip install -r requirements.txt
+```
 
-Create a .env file with:
+Create `.env`:
+```env
 GROQ_KEY=your_key
 SERPER_KEY=your_key
+```
 
-Then run:
+```bash
 streamlit run app.py
-
----
+```
 
 ## Author
 
-Luca Faustino - AI Engineer
-GitHub: https://github.com/faustinoluca-spec
+Luca Faustino — AI Engineer  
+[github.com/faustinoluca-spec](https://github.com/faustinoluca-spec)
